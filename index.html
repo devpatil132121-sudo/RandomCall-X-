@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101827">
+<title>RandomCall X</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b1120;
+  color: #f8fafc;
+}
+
+header {
+  padding: 24px 18px;
+  background: linear-gradient(135deg, #172554, #312e81);
+  border-radius: 0 0 24px 24px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 27px;
+}
+
+header p {
+  color: #cbd5e1;
+  margin-bottom: 0;
+}
+
+main {
+  max-width: 650px;
+  margin: auto;
+  padding: 16px;
+}
+
+.balance {
+  margin-top: 18px;
+  padding: 20px;
+  background: #172033;
+  border: 1px solid #334155;
+  border-radius: 18px;
+}
+
+.balance h2 {
+  margin: 0 0 8px;
+  font-size: 19px;
+}
+
+.balance p {
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.card {
+  background: #172033;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 17px 13px;
+}
+
+.icon {
+  font-size: 27px;
+}
+
+.card h3 {
+  margin: 12px 0 6px;
+  font-size: 16px;
+}
+
+.card p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.section {
+  margin-top: 22px;
+  padding: 18px;
+  background: #172033;
+  border: 1px solid #334155;
+  border-radius: 18px;
+}
+
+h2 {
+  font-size: 19px;
+}
+
+input, select {
+  width: 100%;
+  padding: 13px;
+  margin: 7px 0;
+  background: #0b1120;
+  color: white;
+  border: 1px solid #475569;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 13px;
+  margin-top: 9px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: #334155;
+}
+
+button.call {
+  background: #15803d;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #a5b4fc;
+  outline-offset: 2px;
+}
+
+.entry {
+  padding: 12px 0;
+  border-bottom: 1px solid #334155;
+  overflow-wrap: anywhere;
+}
+
+.entry:last-child {
+  border-bottom: none;
+}
+
+.small {
+  color: #cbd5e1;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+footer {
+  padding: 24px 10px;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>📞 RandomCall X</h1>
+  <p>Business Calling & Customer Manager</p>
+</header>
+
+<main>
+
+  <div class="balance">
+    <h2>Welcome to RandomCall X</h2>
+    <p>तुमच्या बिझनेस कॉल्स आणि ग्राहकांच्या नोंदी एकाच ठिकाणी व्यवस्थापित करा.</p>
+    <p>🟢 Prototype Mode — Free</p>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="icon">📞</div>
+      <h3>SIM Calling</h3>
+      <p>तुमच्या मोबाईलवरून सामान्य कॉल करा.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🌐</div>
+      <h3>Internet Calling</h3>
+      <p>अधिकृत इंटरनेट कॉलिंग सेवा जोडण्यासाठी विभाग.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🔢</div>
+      <h3>Virtual Numbers</h3>
+      <p>अधिकृत व्हर्च्युअल नंबर सेवांची माहिती.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">📋</div>
+      <h3>Call History</h3>
+      <p>या प्रोटोटाइपमधून सुरू केलेल्या कॉल विनंत्यांची नोंद.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <h2>📲 Make a Call</h2>
+
+    <label for="phone">मोबाईल नंबर</label>
+    <input
+      id="phone"
+      type="tel"
+      inputmode="tel"
+      placeholder="उदा. 9876543210"
+      maxlength="16"
+    >
+
+    <button class="call" id="callBtn" type="button">
+      📞 SIM वरून कॉल करा
+    </button>
+
+    <p class="small">
+      हा पर्याय तुमच्या फोनचा सामान्य कॉलिंग इंटरफेस उघडतो.
+      Caller ID बदलत नाही.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>👥 Customer Manager</h2>
+
+    <label for="customerName">ग्राहकाचे नाव</label>
+    <input id="customerName" placeholder="ग्राहकाचे नाव">
+
+    <label for="customerPhone">ग्राहकाचा फोन नंबर</label>
+    <input
+      id="customerPhone"
+      type="tel"
+      inputmode="tel"
+      placeholder="मोबाईल नंबर"
+      maxlength="16"
+    >
+
+    <label for="customerAmount">थकीत रक्कम (₹)</label>
+    <input
+      id="customerAmount"
+      type="number"
+      min="0"
+      step="0.01"
+      placeholder="उदा. 15000"
+    >
+
+    <button id="saveCustomer" type="button">
+      + ग्राहक सेव्ह करा
+    </button>
+
+    <div id="customerList" aria-live="polite"></div>
+  </section>
+
+  <section class="section">
+    <h2>🔢 Virtual Number System</h2>
+    <p class="small">
+      प्रत्येक कॉलसाठी वेगळा अधिकृत नंबर वापरण्यासाठी
+      टेलिकॉम किंवा VoIP सेवा जोडणे आवश्यक आहे.
+    </p>
+
+    <label for="provider">Calling Service Status</label>
+    <select id="provider">
+      <option value="demo">Demo — सेवा जोडलेली नाही</option>
+      <option value="pending">सेवा निवडायची आहे</option>
+    </select>
+
+    <button id="providerBtn" type="button">
+      सेवा स्थिती तपासा
+    </button>
+
+    <p id="providerStatus" class="small" aria-live="polite">
+      सध्या प्रत्यक्ष Virtual Number उपलब्ध नाही.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>🕘 Call History</h2>
+    <div id="callHistory" aria-live="polite">
+      <p class="small">अद्याप कोणतीही कॉल विनंती केलेली नाही.</p>
+    </div>
+
+    <button id="clearHistory" class="secondary" type="button">
+      Call History Clear करा
+    </button>
+  </section>
+
+  <footer>
+    RandomCall X • Free Prototype<br>
+    Real calling requires an authorized calling provider.
+  </footer>
+
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  const $ = id => document.getElementById(id);
+
+  let customers = [];
+  let history = [];
+
+  function normalizePhone(value) {
+    return value.trim().replace(/[\s()-]/g, "");
+  }
+
+  function validPhone(value) {
+    return /^\+?[0-9]{7,15}$/.test(normalizePhone(value));
+  }
+
+  function escapeHTML(value) {
+    return String(value).replace(/[&<>"']/g, char => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    })[char]);
+  }
+
+  function addHistory(number, status) {
+    history.unshift({
+      number,
+      status,
+      time: new Date().toLocaleString()
+    });
+
+    renderHistory();
+  }
+
+  function renderHistory() {
+    const container = $("callHistory");
+
+    if (!history.length) {
+      container.innerHTML =
+        '<p class="small">अद्याप कोणतीही कॉल विनंती केलेली नाही.</p>';
+      return;
+    }
+
+    container.innerHTML = history.map(item => `
+      <div class="entry">
+        <strong>${escapeHTML(item.number)}</strong>
+        <div class="small">${escapeHTML(item.status)}</div>
+        <div class="small">${escapeHTML(item.time)}</div>
+      </div>
+    `).join("");
+  }
+
+  function renderCustomers() {
+    const container = $("customerList");
+
+    if (!customers.length) {
+      container.innerHTML =
+        '<p class="small">अद्याप ग्राहक सेव्ह केलेले नाहीत.</p>';
+      return;
+    }
+
+    container.innerHTML = customers.map((customer, index) => `
+      <div class="entry">
+        <strong>${escapeHTML(customer.name)}</strong>
+        <div class="small">📱 ${escapeHTML(customer.phone)}</div>
+        <div class="small">थकीत रक्कम: ₹${escapeHTML(customer.amount)}</div>
+        <button type="button" data-call="${index}" class="call">
+          📞 या ग्राहकाला कॉल करा
+        </button>
+        <button type="button" data-delete="${index}" class="secondary">
+          ग्राहक हटवा
+        </button>
+      </div>
+    `).join("");
+  }
+
+  function startCall(number) {
+    const phone = normalizePhone(number);
+
+    if (!validPhone(phone)) {
+      alert("कृपया योग्य फोन नंबर टाका.");
+      return;
+    }
+
+    addHistory(phone, "फोनचा कॉलिंग इंटरफेस उघडण्याची विनंती");
+
+    // हा सामान्य SIM कॉल आहे; Caller ID बदलत नाही.
+    window.location.href = "tel:" + phone;
+  }
+
+  $("callBtn").addEventListener("click", () => {
+    startCall($("phone").value);
+  });
+
+  $("saveCustomer").addEventListener("click", () => {
+    const name = $("customerName").value.trim();
+    const phone = normalizePhone($("customerPhone").value);
+    const amountText = $("customerAmount").value;
+    const amount = Number(amountText);
+
+    if (!name) {
+      alert("ग्राहकाचे नाव टाका.");
+      return;
+    }
+
+    if (!validPhone(phone)) {
+      alert("योग्य ग्राहक फोन नंबर टाका.");
+      return;
+    }
+
+    if (
+      amountText.trim() === "" ||
+      !Number.isFinite(amount) ||
+      amount < 0
+    ) {
+      alert("योग्य थकीत रक्कम टाका.");
+      return;
+    }
+
+    customers.push({ name, phone, amount: amount.toFixed(2) });
+
+    renderCustomers();
+
+    $("customerName").value = "";
+    $("customerPhone").value = "";
+    $("customerAmount").value = "";
+  });
+
+  $("customerList").addEventListener("click", event => {
+    const callIndex = event.target.dataset.call;
+    const deleteIndex = event.target.dataset.delete;
+
+    if (callIndex !== undefined) {
+      const customer = customers[Number(callIndex)];
+      if (customer) startCall(customer.phone);
+    }
+
+    if (deleteIndex !== undefined) {
+      customers.splice(Number(deleteIndex), 1);
+      renderCustomers();
+    }
+  });
+
+  $("providerBtn").addEventListener("click", () => {
+    $("providerStatus").textContent =
+      "सध्या कोणताही कॉलिंग प्रोव्हायडर जोडलेला नाही. " +
+      "Virtual Numbers वापरण्यासाठी अधिकृत सेवा आणि बॅकएंड आवश्यक आहे.";
+  });
+
+  $("clearHistory").addEventListener("click", () => {
+    if (confirm("संपूर्ण Call History हटवायची आहे का?")) {
+      history = [];
+      renderHistory();
+    }
+  });
+
+})();
+</script>
+
+</body>
+</html>
